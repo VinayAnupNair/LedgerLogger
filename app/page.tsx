@@ -157,6 +157,24 @@ export default function Portfolio() {
           </div>
         </header>
 
+                {/* ——————————— AI EXPERTISE ——————————— */}
+              <section id="ai" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+                <div className="max-w-7xl mx-auto">
+                  <div className="text-center mb-16">
+                    <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">AI & Cybersecurity Focus</h2>
+                    <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                      Chat directly with my AI system trained on my work - ask anything about my projects, experience, or insights!
+                    </p>
+                  </div>
+
+                  <ChatAI />
+                  
+                  <div className="grid md:grid-cols-2 gap-8 mt-16">
+                    {/* Your AI Project Cards */}
+                  </div>
+                </div>
+              </section>  
+
         {/* ——————————— HERO ——————————— */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
@@ -176,7 +194,7 @@ export default function Portfolio() {
             </p>
            <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-purple-600 hover:bg-purple-700" asChild>
-              <a href="mailto:niravrohrawork@gmail.com">
+              <a href="mailto:niravrohrayc@gmail.com">
                 <Mail className="mr-2 h-5 w-5" />
                 Get In Touch
               </a>
@@ -198,23 +216,7 @@ export default function Portfolio() {
           </div>
         </section>
                 
-                {/* ——————————— AI EXPERTISE ——————————— */}
-              <section id="ai" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
-                <div className="max-w-7xl mx-auto">
-                  <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">AI & Cybersecurity Focus</h2>
-                    <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                      Chat directly with my AI system trained on my work - ask anything about my projects, experience, or insights!
-                    </p>
-                  </div>
-
-                  <ChatAI />
-                  
-                  <div className="grid md:grid-cols-2 gap-8 mt-16">
-                    {/* Your AI Project Cards */}
-                  </div>
-                </div>
-              </section>
+          
 
         {/* ——————————— ABOUT ——————————— */}
         <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
@@ -430,7 +432,7 @@ export default function Portfolio() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
                 <Mail className="h-5 w-5" />
-                <span>niravrohrawork@gmail.com</span>
+                <span>niravrohrayc@gmail.com</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
                 <Phone className="h-5 w-5" />
@@ -447,7 +449,7 @@ export default function Portfolio() {
                 className="bg-purple-600 hover:bg-purple-700"
                 asChild
               >
-                <a href="mailto:niravrohrawork@gmail.com">
+                <a href="mailto:niravrohrayc@gmail.com">
                   <Mail className="mr-2 h-5 w-5" />
                   Send Message
                 </a>
