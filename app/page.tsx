@@ -266,7 +266,7 @@ export default function Portfolio() {
                     className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200"
                   >
                     <a
-                      href="https://www.linkedin.com/in/niravrohra"
+                      href="https://www.linkedin.com/in/nirav-rohra"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center"
