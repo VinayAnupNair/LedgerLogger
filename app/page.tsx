@@ -449,7 +449,7 @@ export default function Portfolio() {
                 className="bg-purple-600 hover:bg-purple-700"
                 asChild
               >
-                <a href="mailto:niravrohrayc@gmail.com">
+                <a href="mailto:hello@honrly.com">
                   <Mail className="mr-2 h-5 w-5" />
                   Send Message
                 </a>
