@@ -123,7 +123,7 @@ export default function Portfolio() {
       company: "UT Dallas Residence Life",
       period: "Sep 2024 – Present",
       description:
-        "Steward $150 k budget, lead data-driven initiatives for 4 500 residents, and oversee exec board to execute campus-wide programs.",
+        "Lead data-driven initiatives for residents, and oversee exec board to execute campus-wide programs.",
     },
     
   ]
