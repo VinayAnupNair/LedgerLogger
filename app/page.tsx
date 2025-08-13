@@ -112,7 +112,7 @@ export default function Portfolio() {
         "Designed data-driven sites (ftth24x7, AIAAUTD, HRCR LLP) using UX A/B testing, SEO, and secure DevOps workflows - lifting retention by 23.5 %.",
     },
     {
-      role: "Programming Intern / Instructor",
+      role: "Software Engineer",
       company: "Royal Technosoft Pvt Ltd",
       period: "Nov 2019 – Jul 2021",
       description:
