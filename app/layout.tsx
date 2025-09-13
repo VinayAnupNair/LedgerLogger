@@ -1,7 +1,8 @@
 // app/layout.tsx
 import "./globals.css"
 import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider" // assuming your provider is here
+import { ThemeProvider } from "@/components/theme-provider"
+import Script from "next/script" // ✅ add this
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,6 +22,13 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
+
+        {/* ✅ Load LinkedIn badge script once, after hydration */}
+        <Script
+          src="https://platform.linkedin.com/badges/js/profile.js"
+          strategy="afterInteractive"
+           async defer type="text/javascript"
+        />
       </body>
     </html>
   )

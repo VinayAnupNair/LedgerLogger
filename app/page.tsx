@@ -39,7 +39,7 @@ export default function Portfolio() {
     "MLOps",
     "Graphic Design",
   ]
-
+  
   /* ——————————————————— PROJECTS ——————————————————— */
   const projects = [
     {
@@ -130,6 +130,7 @@ export default function Portfolio() {
 
 
   return (
+    
     <>
       <Spotlight />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 dark:from-gray-950 dark:to-gray-900">
@@ -257,8 +258,10 @@ export default function Portfolio() {
                       GitHub
                     </a>
                   </Button>
+                  {/* LinkedIn Profile Badge */}
 
-                  {/* LinkedIn */}
+
+                  {/* LinkedIn */}  
                   <Button
                     asChild
                     variant="outline"
