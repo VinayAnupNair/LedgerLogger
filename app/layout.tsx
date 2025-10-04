@@ -1,21 +1,21 @@
 // app/layout.tsx
-import "./globals.css"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import Script from "next/script" // ✅ add this
+import "./globals.css";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import Script from "next/script";
+import type { ReactNode } from "react";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Nirav Rohra Portfolio",
   description: "AI Engineer & Innovator",
-}
+  icons: {
+    icon: "/favicon.ico", // place a favicon.ico in /public
+  },
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
@@ -23,13 +23,14 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
 
-        {/* ✅ Load LinkedIn badge script once, after hydration */}
+        {/* LinkedIn badge script */}
         <Script
           src="https://platform.linkedin.com/badges/js/profile.js"
           strategy="afterInteractive"
-           async defer type="text/javascript"
+          async
+          defer
         />
       </body>
     </html>
-  )
+  );
 }
