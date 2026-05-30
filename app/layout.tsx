@@ -2,56 +2,118 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { siteConfig } from "@/lib/site";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "AI Consulting for Businesses | Applied AI, Security & Automation | Nirav Rohra",
-  description:
-    "Hands-on AI help for businesses: fraud and abuse detection, interview integrity, security analytics, and internal copilots. Practical machine learning and LLM systems that actually ship.",
-  icons: {
-    icon: "/favicon.ico",
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: `%s · ${siteConfig.name}`,
   },
+  description: siteConfig.description,
   keywords: [
-    "AI consulting",
-    "AI for business",
-    "machine learning engineer",
-    "LLM consulting",
-    "AI security",
-    "AI fraud detection",
-    "AI for startups",
-    "AI for enterprises",
     "Nirav Rohra",
+    "AI engineer",
+    "cybersecurity",
+    "mechanistic interpretability",
     "Honrly",
+    "UT Dallas",
+    "machine learning",
+    "AI integrity",
+    "LLM research",
+    "Zebra Technologies",
+    "portfolio",
   ],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "AI Help for Your Business | Practical ML & LLM Systems",
-    description:
-      "Applied AI, security, and automation for teams that care about reliability and real-world impact. From fraud detection to interview integrity and internal copilots.",
-    url: "https://honrly.com",
-    siteName: "Nirav Rohra",
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: [
       {
-        url: "https://honrly.com/logo.png",
+        url: siteConfig.ogImage,
         width: 512,
         height: 512,
-        alt: "Honrly logo - AI integrity platform",
+        alt: "Nirav Rohra — AI & cybersecurity portfolio",
       },
     ],
-    locale: "en_US",
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Help for Your Business | Practical ML & LLM Systems",
-    description:
-      "Hands-on AI, security, and automation for teams shipping real products. Less slide decks, more systems.",
-    images: ["https://honrly.com/logo.png"],
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  category: "technology",
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  email: siteConfig.email,
+  jobTitle: "Founder & AI Engineer",
+  description: siteConfig.description,
+  sameAs: [
+    siteConfig.links.github,
+    siteConfig.links.linkedin,
+    siteConfig.links.honrly,
+    siteConfig.links.aplcard,
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "The University of Texas at Dallas",
+  },
+  knowsAbout: [
+    "Artificial Intelligence",
+    "Mechanistic Interpretability",
+    "Cybersecurity",
+    "Machine Learning",
+    "Large Language Models",
+    "Interview Integrity Software",
+    "Cross-Channel Disagreement",
+    "CCD-Bench",
+    "LLM Evaluation",
+  ],
+  worksFor: {
+    "@type": "Organization",
+    name: "Honrly Inc",
+    url: siteConfig.links.honrly,
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.description,
+  author: {
+    "@type": "Person",
+    name: siteConfig.name,
   },
 };
 
@@ -63,42 +125,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </ThemeProvider>
 
-        {/* JSON-LD for SEO */}
         <Script id="ld-json-person" type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Nirav Rohra",
-            description:
-              "Engineer working on applied AI, security, and interview integrity systems for businesses and startups.",
-            url: "https://honrly.com",
-            sameAs: [
-              "https://github.com/niravrohra",
-              "https://www.linkedin.com/in/nirav-rohra",
-              "https://honrly.com",
-              "https://aplcard.com",
-              "https://ziqara.com",
-            ],
-            knowsAbout: [
-              "Artificial Intelligence",
-              "Machine Learning",
-              "Cybersecurity",
-              "Fraud detection",
-              "Interview integrity",
-              "LLM applications",
-              "Business process automation",
-            ],
-            worksFor: [
-              {
-                "@type": "Organization",
-                name: "Honrly",
-                url: "https://honrly.com",
-              },
-            ],
-          })}
+          {JSON.stringify(personSchema)}
+        </Script>
+        <Script id="ld-json-website" type="application/ld+json">
+          {JSON.stringify(websiteSchema)}
         </Script>
 
-        {/* LinkedIn badge script */}
         <Script
           src="https://platform.linkedin.com/badges/js/profile.js"
           strategy="afterInteractive"

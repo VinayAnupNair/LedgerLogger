@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add after the existing Tailwind imports */
-
 html {
   scroll-behavior: smooth;
 }
