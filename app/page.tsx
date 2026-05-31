@@ -35,13 +35,6 @@ const stagger: Variants = {
   },
 };
 
-const structuredTransaction = {
-  eyebrow: "Structured transaction",
-  title: "Asset purchase agreement",
-  highlight: "Partial exit",
-  description: "Structured asset purchase agreement. Partial exit with perks and strategic value.",
-};
-
 const credibility = [
   {
     label: "Founder",
@@ -247,29 +240,7 @@ export default function Page() {
         </div>
       </header>
 
-      {/* Structured transaction  -  top spotlight */}
       <section className="relative z-10 mx-auto max-w-6xl px-5 pt-8 md:px-8">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="relative overflow-hidden border border-[#111111]/15 bg-[#111111]/95 px-5 py-5 text-[#f4f1ea] md:px-8 md:py-6"
-        >
-          <div className="relative flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[#d79a70]/80">
-                {structuredTransaction.eyebrow}
-              </p>
-              <p className="mt-2 text-lg font-medium tracking-[-0.03em] text-[#f4f1ea]">
-                {structuredTransaction.highlight} · {structuredTransaction.title}
-              </p>
-            </div>
-            <p className="max-w-md text-[13px] leading-6 text-white/50">
-              {structuredTransaction.description}
-            </p>
-          </div>
-        </motion.div>
-
         <motion.a
           href={featuredHackathon.href}
           target="_blank"
@@ -277,7 +248,7 @@ export default function Page() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="group mt-2 flex flex-col gap-2 border border-[#111111]/10 bg-[#111111]/[0.03] px-4 py-3 transition hover:border-[#111111]/20 sm:flex-row sm:items-center sm:justify-between md:px-6"
+          className="group flex flex-col gap-2 border border-[#111111]/10 bg-[#111111]/[0.03] px-4 py-3 transition hover:border-[#111111]/20 sm:flex-row sm:items-center sm:justify-between md:px-6"
         >
           <div>
             <p className="text-[10px] uppercase tracking-[0.2em] text-[#111111]/40">

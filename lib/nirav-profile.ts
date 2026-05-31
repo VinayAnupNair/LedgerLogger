@@ -59,9 +59,6 @@ ftth24x7.com, tranquilflow.org (CNN injury detection, Gemini, collaborative filt
 ### Cybersecurity & Analytics — Projects
 Penetration testing on Hindenburg Research (reported to Nathan Anderson). NSA Codebreaker Challenge Part 3. Fake audio detection via ResNet (96.8% accuracy). NASA L'SPACE program analyst — lunar landing cost modeling.
 
-## Structured transaction
-Partial asset purchase agreement through a structured deal — partial exit with perks and strategic value.
-
 ## Hackathons & events
 - Y Combinator Call My Agent Hackathon (2026) — attended
 - Hack Harvard (2025) — attended
