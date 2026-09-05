@@ -2,7 +2,7 @@ export const niravProfile = `
 # Nirav Rohra — profile context for AI assistant
 
 ## About
-Nirav Rohra is a human who builds stuff in the AI space, likes talking to people, and sometimes works on mechanistic interpretability and ethics. Portfolio site: niravrohra.com. Email: hello@honrly.com. LinkedIn: linkedin.com/in/nirav-rohra. GitHub: github.com/niravrohra.
+Nirav Rohra is a human who builds stuff, likes talking to people, and sometimes works on mechanistic interpretability and ethics. Currently at stealth (Aug 2026—), making the world's most advanced AI system. Portfolio site: niravrohra.com. Email: hello@honrly.com. LinkedIn: linkedin.com/in/nirav-rohra. GitHub: github.com/niravrohra.
 
 ## Education
 The University of Texas at Dallas — B.S. Computer Science (Artificial Intelligence) with Cyber-Defense certification (expected 2027).
@@ -14,6 +14,9 @@ Scholarships: Academic Excellence Scholar.
 - Former President, Community Council (elected 2024–2025)
 
 ## Work & experience
+
+### Stealth (Aug 2026 — present)
+Currently at a stealth company, making the world's most advanced AI system. Other details are not public yet.
 
 ### Honrly Inc — Founder (present)
 Delaware C-Corp. AI integrity platform for macOS and Windows — focused on trust-critical workflows like interviews and hiring. Patent pending. macOS and Windows app codebase. Users across many countries. Product: honrly.com. Side product: aplcard.com (Apple Wallet pass generator).

@@ -2,9 +2,9 @@ export const siteConfig = {
   name: "Nirav Rohra",
   url: "https://niravrohra.com",
   email: "hello@honrly.com",
-  title: "Nirav Rohra — AI, Cybersecurity & Research",
+  title: "Nirav Rohra — Stealth",
   description:
-    "Portfolio of Nirav Rohra — founder of Honrly, AI/cyber intern at Zebra, CS (AI) at UT Dallas. Building in AI integrity, mechanistic interpretability, and security.",
+    "Nirav Rohra. Stealth. Making the world's most advanced AI system.",
   ogImage: "https://honrly.com/logo.png",
   links: {
     github: "https://github.com/niravrohra",

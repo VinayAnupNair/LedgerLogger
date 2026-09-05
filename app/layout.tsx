@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 512,
         height: 512,
-        alt: "Nirav Rohra — AI & cybersecurity portfolio",
+        alt: "Nirav Rohra — Stealth",
       },
     ],
   },
@@ -75,7 +75,7 @@ const personSchema = {
   name: siteConfig.name,
   url: siteConfig.url,
   email: siteConfig.email,
-  jobTitle: "Founder & AI Engineer",
+  jobTitle: "Co-founder",
   description: siteConfig.description,
   sameAs: [
     siteConfig.links.github,

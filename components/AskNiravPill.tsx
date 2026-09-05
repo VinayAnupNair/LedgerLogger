@@ -10,7 +10,7 @@ type ChatMessage = {
 };
 
 const STARTERS = [
-  "What does Nirav work on?",
+  "What is he working on now?",
   "Tell me about Honrly",
   "What's his research about?",
 ];

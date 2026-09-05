@@ -9,9 +9,11 @@ import {
   type Variants,
 } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Mail, ExternalLink, ArrowDown } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { Mail, ArrowDown } from "lucide-react";
 import AskNiravPill from "@/components/AskNiravPill";
+import { SmoothScroll } from "@/components/home/smooth-scroll";
+import { LoadIntro } from "@/components/home/load-intro";
+import { SiteNav } from "@/components/home/site-nav";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -35,154 +37,57 @@ const stagger: Variants = {
   },
 };
 
-const credibility = [
-  {
-    label: "Founder",
-    value: "Honrly Inc",
-    detail: "AI integrity platform for macOS and Windows.",
-  },
-  {
-    label: "Cybersecurity",
-    value: "Zebra Technologies",
-    detail: "AI/cyber intern  -  SIEM, vuln workflows, internal tooling.",
-  },
-  {
-    label: "Research",
-    value: "CCD-Bench preprint",
-    detail: "Cross-channel disagreement in LLM evaluation — paper & corpus.",
-    href: "/research",
-  },
-  {
-    label: "Education",
-    value: "UT Dallas",
-    detail: "B.S. CS (AI), cyber-defense cert. Community Council president.",
-  },
-];
-
 const selectedWork = [
-  {
-    title: "Honrly Inc",
-    eyebrow: "Founder",
-    description:
-      "AI integrity for macOS and Windows  -  mostly interviews and hiring.",
-  },
-  {
-    title: "Mechanistic interpretability",
-    eyebrow: "Researcher",
-    description:
-      "Cross-channel disagreement in LLM evaluation — CCD-Bench preprint.",
-    href: "/research",
-  },
-  {
-    title: "Zebra Technologies",
-    eyebrow: "AI / Cyber Intern",
-    description:
-      "AI/cyber intern — SIEM, vuln ops, internal AI tooling; leadership projects across Orca, CrowdStrike, HackerOne VDP, and more.",
-  },
-  {
-    title: "UT Dallas · Lab Assistant",
-    eyebrow: "Office of Information & Technology",
-    description:
-      "Campus lab IT  -  Mac, Windows, Linux support, ticketing, print systems.",
-  },
-  {
-    title: "UT Dallas · Community Council",
-    eyebrow: "President",
-    description:
-      "Council meetings, budget and grants, exec board for campus programs.",
-  },
-  {
-    title: "UT Dallas · Facility Management",
-    eyebrow: "Student Assistant",
-    description:
-      "Admin and facility ops  -  access, safety, day-to-day compliance.",
-  },
-  {
-    title: "UT Dallas · Research",
-    eyebrow: "Undergraduate Researcher",
-    description:
-      "ML notebook for particle classification. Malware detection research with entropy analysis.",
-  },
-  {
-    title: "Royal Technosoft",
-    eyebrow: "Programming Intern",
-    description:
-      "Taught intro programming  -  C++ games and Unity3D HoloLens projects.",
-  },
-  {
-    title: "Web Design & Deployment",
-    eyebrow: "Contract",
-    description:
-      "Sites for a few local orgs  -  ftth24x7, tranquilflow, aiaautd, HRCR Lamination.",
-  },
-  {
-    title: "Cybersecurity & Analytics",
-    eyebrow: "Projects",
-    description:
-      "Pen testing, NSA Codebreaker, deepfake audio detection, NASA L'SPACE cost modeling.",
-  },
+  { title: "Stealth" },
+  { title: "Honrly", detail: "Interview integrity." },
+  { title: "CCD-Bench", detail: "LLM eval preprint.", href: "/research" },
+  { title: "Zebra", detail: "SIEM, vuln ops." },
+  { title: "UT Dallas", detail: "Labs, council, research." },
+  { title: "Royal Technosoft", detail: "Taught C++ and HoloLens." },
+  { title: "Sites", detail: "ftth24x7, tranquilflow, aiaautd." },
+  { title: "Security", detail: "NSA Codebreaker, deepfake audio." },
 ];
 
 const tools = [
   "Python",
   "PyTorch",
-  "Next.js / React",
-  "Kali Linux",
-  "Docker / MLOps",
-  "AWS / GCP / Azure",
-  "CrowdStrike SIEM",
-  "TensorFlow / Keras",
-  "SQL / Presto",
+  "Next.js",
+  "Kali",
+  "Docker",
+  "AWS",
+  "GCP",
+  "Azure",
+  "CrowdStrike",
+  "TensorFlow",
+  "SQL",
   "Hugging Face",
-  "Scikit-learn",
   "Power BI",
 ];
 
 const featuredHackathon = {
-  name: "Call My Agent Hackathon",
-  org: "Y Combinator",
-  year: "2026",
-  detail: "Went to YC's Call My Agent Hackathon. Good day.",
+  name: "YC Call My Agent",
   href: "https://www.linkedin.com/feed/update/urn:li:activity:7462011224017240064/",
 };
 
 const hackathons = [
-  "Hack Harvard",
-  "Penn Apps XXVI",
+  {
+    name: "Hack Harvard",
+    href: "https://www.thecrimson.com/article/2025/10/6/facemash-website-hackathon/",
+  },
+  { name: "Penn Apps XXVI", href: "https://utdmercury.com/32536/news/from-utd-to-harvard-how-a-dallas-student-sparked-viral-debate-over-ethics-in-tech/" },
 ];
 
 const certifications = [
-  "Oracle Certified Associate Java SE 8",
-  "CompTIA Network+",
-  "AWS Certified Cloud Practitioner",
-  "Azure AI Engineer Associate (In Progress)",
-  "Yoga Alliance USA Certified Yoga Instructor",
+  "Java SE 8",
+  "Network+",
+  "AWS Cloud Practitioner",
+  "Azure AI Engineer",
+  "Yoga instructor",
 ];
 
-function SmoothAnchor({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <a
-      href={href}
-      onClick={(event) => {
-        event.preventDefault();
-        const target = document.querySelector(href);
-        target?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }}
-      className="transition hover:text-[#111111] dark:hover:text-[#f4f1ea]"
-    >
-      {children}
-    </a>
-  );
-}
-
-export default function Page() {
+function HomePage() {
   const reducedMotion = useReducedMotion();
+  const [ready, setReady] = React.useState(!!reducedMotion);
   const { scrollYProgress } = useScroll();
 
   const heroY = useTransform(scrollYProgress, [0, 0.35], [0, reducedMotion ? 0 : -70]);
@@ -190,7 +95,6 @@ export default function Page() {
 
   return (
     <main className="min-h-screen scroll-smooth bg-[#f4f1ea] text-[#111111] selection:bg-[#111111] selection:text-[#f4f1ea]">
-      {/* Ambient background */}
       <motion.div
         style={{ opacity: gridOpacity }}
         className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(to_right,rgba(17,17,17,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(17,17,17,0.045)_1px,transparent_1px)] bg-[size:92px_92px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]"
@@ -198,96 +102,37 @@ export default function Page() {
 
       <div className="pointer-events-none fixed left-1/2 top-[-20rem] z-0 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-[#b4693d]/10 blur-3xl" />
 
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-[#111111]/10 bg-[#f4f1ea]/78 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
-          <a
-            href="#top"
-            className="text-sm font-semibold tracking-[-0.03em] text-[#111111]"
-          >
-            nr
-          </a>
+      <LoadIntro onDone={() => setReady(true)} />
+      <SiteNav ready={ready} />
 
-          <nav className="flex items-center gap-5 text-[13px] text-[#111111]/55">
-            <a
-              href="/research"
-              className="transition hover:text-[#111111] dark:hover:text-[#f4f1ea]"
-            >
-              Research
-            </a>
-            <SmoothAnchor href="#dino">This is boring  -  play game</SmoothAnchor>
-          </nav>
-
-          <div className="flex items-center gap-4">
-            <a
-              href="https://github.com/niravrohra"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden text-xs text-[#111111]/50 transition hover:text-[#111111] sm:inline"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/nirav-rohra"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden text-xs text-[#111111]/50 transition hover:text-[#111111] sm:inline"
-            >
-              LinkedIn
-            </a>
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
-
-      <section className="relative z-10 mx-auto max-w-6xl px-5 pt-8 md:px-8">
-        <motion.a
-          href={featuredHackathon.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="group flex flex-col gap-2 border border-[#111111]/10 bg-[#111111]/[0.03] px-4 py-3 transition hover:border-[#111111]/20 sm:flex-row sm:items-center sm:justify-between md:px-6"
-        >
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-[#111111]/40">
-              {featuredHackathon.org} · {featuredHackathon.year}
-            </p>
-            <p className="mt-0.5 text-sm font-medium tracking-[-0.02em] text-[#111111]/80">
-              {featuredHackathon.name}
-            </p>
-          </div>
-          <p className="text-[13px] leading-5 text-[#111111]/45">
-            {featuredHackathon.detail}
-          </p>
-        </motion.a>
-      </section>
-
-      {/* Hero */}
-      <section id="top" className="relative z-10 mx-auto max-w-6xl px-5 pb-20 pt-20 md:px-8 md:pb-28 md:pt-28">
+      <section
+        id="top"
+        className="relative z-10 mx-auto max-w-6xl px-5 pb-20 pt-20 md:px-8 md:pb-28 md:pt-28"
+      >
         <motion.div
           style={{ y: heroY }}
           variants={stagger}
           initial="hidden"
-          animate="visible"
+          animate={ready ? "visible" : "hidden"}
           className="max-w-5xl"
         >
-          <motion.h1
-            variants={fadeUp}
-            className="max-w-4xl text-[clamp(2.25rem,5.5vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.05em]"
-          >
-            I build AI things. The dinosaur is below if this bores you.
-          </motion.h1>
+          <h1 className="mt-4 max-w-4xl overflow-hidden text-[clamp(2.25rem,5.5vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.05em]">
+            <motion.span
+              className="block"
+              initial={{ y: "110%", rotate: 3 }}
+              animate={ready ? { y: "0%", rotate: 0 } : { y: "110%", rotate: 3 }}
+              transition={{ duration: 1.05, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+            >
+              Stealth
+            </motion.span>
+          </h1>
 
           <motion.div
             variants={fadeUp}
             className="mt-8 max-w-2xl border-t border-[#111111]/15 pt-6"
           >
             <p className="text-[14px] leading-6 text-[#111111]/55">
-              I&apos;m Nirav  -  a human like you who likes building stuff in the
-              AI space, talking to people, and sometimes messing around with
-              mechanistic interpretability and ethics.
+              Making the world&apos;s most advanced AI system.
             </p>
           </motion.div>
 
@@ -322,49 +167,6 @@ export default function Page() {
         </motion.div>
       </section>
 
-      {/* Credibility cards */}
-      <section className="relative z-10 mx-auto max-w-6xl px-5 pb-24 md:px-8">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {credibility.map((item) => {
-            const card = (
-              <>
-                <p className="text-[10px] uppercase tracking-[0.18em] text-[#111111]/38">
-                  {item.label}
-                </p>
-                <h2 className="mt-4 text-lg font-medium tracking-[-0.04em]">
-                  {item.value}
-                </h2>
-                <p className="mt-3 text-[13px] leading-5 text-[#111111]/50">
-                  {item.detail}
-                </p>
-              </>
-            );
-            return (
-              <motion.div
-                key={item.label}
-                variants={fadeUp}
-                className="group min-h-[180px] border border-[#111111]/10 bg-[#f4f1ea]/70 p-5 backdrop-blur transition duration-500 hover:border-[#111111]/25"
-              >
-                {"href" in item && item.href ? (
-                  <a href={item.href} className="block">
-                    {card}
-                  </a>
-                ) : (
-                  card
-                )}
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </section>
-
-      {/* Selected work */}
       <section id="work" className="relative z-10 bg-[#111111] text-[#f4f1ea]">
         <div className="mx-auto grid max-w-6xl gap-16 px-5 py-24 md:px-8 md:py-28 lg:grid-cols-[0.38fr_0.62fr]">
           <motion.div
@@ -374,65 +176,33 @@ export default function Page() {
             viewport={{ once: true, margin: "-120px" }}
           >
             <p className="text-[12px] uppercase tracking-[0.24em] text-white/35">
-              Selected work
+              Work
             </p>
-            <h2 className="mt-4 text-3xl font-medium leading-[1] tracking-[-0.05em] md:text-4xl">
-              Some things I&apos;ve done.
-            </h2>
-              <div className="mt-8 space-y-3">
-              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">
-                Hackathons · 2025
-              </p>
-              <div className="border border-white/10 px-3 py-3">
-                <p className="text-[10px] uppercase tracking-[0.18em] text-white/35">
-                  {featuredHackathon.org} · {featuredHackathon.year}
+            <div className="mt-8">
+                <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">
+                  Hackathons
                 </p>
-                <p className="mt-1.5 text-sm font-medium tracking-[-0.02em] text-[#f4f1ea]/90">
-                  {featuredHackathon.name}
-                </p>
-                <p className="mt-1.5 text-[12px] leading-5 text-white/45">
-                  {featuredHackathon.detail}
-                </p>
-                <a
-                  href={featuredHackathon.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-block text-[12px] text-white/40 underline decoration-white/15 underline-offset-4 transition hover:text-white/70"
-                >
-                  LinkedIn recap
-                </a>
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {hackathons.map((name) => (
-                  <span
-                    key={name}
-                    className="border border-white/10 px-2.5 py-1 text-[12px] text-white/50"
+                <div className="mt-2 flex flex-col gap-1">
+                  <a
+                    href={featuredHackathon.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] text-white/55 transition hover:text-[#f4f1ea]"
                   >
-                    {name}
-                  </span>
-                ))}
-              </div>
-              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 pt-3">
-                Press
-              </p>
-              <div className="flex flex-col gap-1.5">
-                <a
-                  href="https://www.thecrimson.com/article/2025/10/6/facemash-website-hackathon/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[13px] text-white/45 underline decoration-white/15 underline-offset-4 transition hover:text-white/70"
-                >
-                  Harvard Crimson
-                </a>
-                <a
-                  href="https://utdmercury.com/32536/news/from-utd-to-harvard-how-a-dallas-student-sparked-viral-debate-over-ethics-in-tech/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[13px] text-white/45 underline decoration-white/15 underline-offset-4 transition hover:text-white/70"
-                >
-                  UTD Mercury
-                </a>
-              </div>
+                    {featuredHackathon.name}
+                  </a>
+                  {hackathons.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[14px] text-white/55 transition hover:text-[#f4f1ea]"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
             </div>
           </motion.div>
 
@@ -446,27 +216,22 @@ export default function Page() {
             {selectedWork.map((item) => {
               const row = (
                 <>
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.14em] text-white/35">
-                      {item.eyebrow}
-                    </p>
-                    <h3 className="mt-2 text-lg font-medium tracking-[-0.03em]">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p className="text-[13px] leading-5 text-white/45">
-                    {item.description}
-                  </p>
+                  <h3 className="text-[15px] font-medium tracking-[-0.03em]">
+                    {item.title}
+                  </h3>
+                  {"detail" in item && item.detail ? (
+                    <p className="text-[13px] text-white/40">{item.detail}</p>
+                  ) : null}
                 </>
               );
               return (
                 <motion.div
                   key={item.title}
                   variants={fadeUp}
-                  className="grid gap-3 border-b border-white/10 py-5 md:grid-cols-[0.34fr_0.66fr]"
+                  className="flex items-baseline justify-between gap-6 border-b border-white/10 py-4"
                 >
                   {"href" in item && item.href ? (
-                    <a href={item.href} className="contents transition hover:opacity-90">
+                    <a href={item.href} className="flex w-full items-baseline justify-between gap-6 transition hover:opacity-80">
                       {row}
                     </a>
                   ) : (
@@ -479,137 +244,42 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Systems section */}
-      <section id="systems" className="relative z-10 mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-28">
-        <div className="grid gap-12 border-y border-[#111111]/15 py-14 lg:grid-cols-[0.42fr_0.58fr]">
+      <section id="systems" className="relative z-10 mx-auto max-w-6xl px-5 py-24 md:px-8">
+        <div className="grid gap-12 border-t border-[#111111]/15 pt-14 lg:grid-cols-[1fr_0.38fr]">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-120px" }}
+            viewport={{ once: true, margin: "-80px" }}
           >
-            <p className="text-[12px] uppercase tracking-[0.24em] text-[#111111]/40">
-              Systems
+            <p className="text-[12px] uppercase tracking-[0.24em] text-[#111111]/35">
+              Tools
             </p>
-            <h2 className="mt-4 max-w-xl text-3xl font-medium leading-[1] tracking-[-0.05em] md:text-4xl">
-              Tools I&apos;ve used.
-            </h2>
-            <p className="mt-6 max-w-md text-[13px] leading-5 text-[#111111]/50">
-              ML, cloud, security tooling, and full-stack  -  whatever the project needed.
+            <p className="mt-5 max-w-2xl text-[15px] leading-8 tracking-[-0.02em] text-[#111111]/55">
+              {tools.join(" · ")}
             </p>
-            <div className="mt-8">
-              <p className="text-[11px] uppercase tracking-[0.16em] text-[#111111]/35">
-                Certifications
-              </p>
-              <ul className="mt-3 space-y-1">
-                {certifications.map((cert) => (
-                  <li
-                    key={cert}
-                    className="text-[13px] leading-5 text-[#111111]/50"
-                  >
-                    {cert}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </motion.div>
 
           <motion.div
-            variants={stagger}
+            variants={fadeUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-120px" }}
-            className="grid grid-cols-1 gap-3 sm:grid-cols-2"
+            viewport={{ once: true, margin: "-80px" }}
           >
-            {tools.map((tool) => (
-              <motion.div
-                key={tool}
-                variants={fadeUp}
-                className="border border-[#111111]/10 bg-white/20 px-4 py-3.5 text-[13px] text-[#111111]/55 backdrop-blur transition hover:border-[#111111]/20"
-              >
-                {tool}
-              </motion.div>
-            ))}
+            <p className="text-[12px] uppercase tracking-[0.24em] text-[#111111]/35">
+              Certs
+            </p>
+            <ul className="mt-5 space-y-1.5">
+              {certifications.map((cert) => (
+                <li key={cert} className="text-[14px] text-[#111111]/50">
+                  {cert}
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </div>
       </section>
 
-      {/* Products */}
-      <section id="products" className="relative z-10 mx-auto max-w-6xl px-5 pb-24 md:px-8 md:pb-28">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-120px" }}
-          className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]"
-        >
-          <motion.a
-            variants={fadeUp}
-            href="https://honrly.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group min-h-[420px] bg-[#111111] p-7 text-[#f4f1ea] transition hover:bg-[#181818] md:p-9"
-          >
-            <div className="flex items-center justify-between border-b border-white/15 pb-5">
-              <span className="text-[12px] uppercase tracking-[0.2em] text-white/35">
-                Main company
-              </span>
-              <ExternalLink className="h-4 w-4 text-white/35 transition group-hover:text-[#d79a70]" />
-            </div>
-
-            <div className="flex h-[calc(100%-48px)] flex-col justify-end">
-              <img
-                src="https://honrly.com/logo.png"
-                alt="Honrly"
-                className="mb-8 h-12 w-fit opacity-90"
-              />
-              <h3 className="max-w-2xl text-3xl font-medium leading-[1] tracking-[-0.05em] md:text-4xl">
-                Interview integrity for the AI era.
-              </h3>
-              <p className="mt-5 max-w-xl text-[13px] leading-5 text-white/45">
-                Detects suspicious tools in interviews, exams, and online workflows.
-              </p>
-            </div>
-          </motion.a>
-
-          <div className="grid gap-5">
-            {[
-              {
-                name: "aplcard.com",
-                href: "https://aplcard.com",
-                label: "Apple Wallet pass generator",
-              },
-            ].map((product) => (
-              <motion.a
-                key={product.name}
-                variants={fadeUp}
-                href={product.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex min-h-[200px] flex-col justify-between border border-[#111111]/10 p-6 transition hover:border-[#b4693d]/45 hover:bg-white/25"
-              >
-                <div className="flex items-center justify-between">
-                  <p className="text-[12px] uppercase tracking-[0.2em] text-[#111111]/38">
-                    Side thing
-                  </p>
-                  <ExternalLink className="h-4 w-4 text-[#111111]/35 transition group-hover:text-[#b4693d]" />
-                </div>
-
-                <div>
-                  <h3 className="text-3xl font-medium tracking-[-0.05em]">
-                    {product.name}
-                  </h3>
-                  <p className="mt-3 text-sm text-[#111111]/52">
-                    {product.label}
-                  </p>
-                </div>
-              </motion.a>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
-      {/* T-Rex */}
       <section id="dino" className="relative z-10 mx-auto max-w-6xl px-5 pb-24 md:px-8">
         <div className="border-y border-[#111111]/15 py-12">
           <p className="mb-4 text-[12px] uppercase tracking-[0.2em] text-[#111111]/38">
@@ -634,7 +304,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Contact */}
       <section id="contact" className="relative z-10 mx-auto max-w-6xl px-5 pb-10 md:px-8">
         <div className="bg-[#111111] px-6 py-16 text-[#f4f1ea] md:px-10 md:py-20">
           <div className="grid gap-10 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
@@ -643,7 +312,7 @@ export default function Page() {
                 Contact
               </p>
               <h2 className="mt-4 max-w-3xl text-3xl font-medium leading-[1] tracking-[-0.05em] md:text-5xl">
-                Working on something AI, cyber, or trust-heavy?
+                Working on something?
               </h2>
             </div>
 
@@ -672,7 +341,15 @@ export default function Page() {
         <p>AI, cybersecurity, and trust infrastructure.</p>
       </footer>
 
-      <AskNiravPill />
+      {ready && <AskNiravPill />}
     </main>
+  );
+}
+
+export default function Page() {
+  return (
+    <SmoothScroll>
+      <HomePage />
+    </SmoothScroll>
   );
 }
