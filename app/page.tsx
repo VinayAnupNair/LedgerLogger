@@ -37,52 +37,19 @@ const stagger: Variants = {
   },
 };
 
-const selectedWork = [
-  { title: "Stealth" },
-  { title: "Honrly", detail: "Interview integrity." },
-  { title: "CCD-Bench", detail: "LLM eval preprint.", href: "/research" },
-  { title: "Zebra", detail: "SIEM, vuln ops." },
-  { title: "UT Dallas", detail: "Labs, council, research." },
-  { title: "Royal Technosoft", detail: "Taught C++ and HoloLens." },
-  { title: "Sites", detail: "ftth24x7, tranquilflow, aiaautd." },
-  { title: "Security", detail: "NSA Codebreaker, deepfake audio." },
-];
-
-const tools = [
-  "Python",
-  "PyTorch",
-  "Next.js",
-  "Kali",
-  "Docker",
-  "AWS",
-  "GCP",
-  "Azure",
-  "CrowdStrike",
-  "TensorFlow",
-  "SQL",
-  "Hugging Face",
-  "Power BI",
-];
-
-const featuredHackathon = {
-  name: "YC Call My Agent",
-  href: "https://www.linkedin.com/feed/update/urn:li:activity:7462011224017240064/",
-};
-
 const hackathons = [
+  {
+    name: "YC Call My Agent",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7462011224017240064/",
+  },
   {
     name: "Hack Harvard",
     href: "https://www.thecrimson.com/article/2025/10/6/facemash-website-hackathon/",
   },
-  { name: "Penn Apps XXVI", href: "https://utdmercury.com/32536/news/from-utd-to-harvard-how-a-dallas-student-sparked-viral-debate-over-ethics-in-tech/" },
-];
-
-const certifications = [
-  "Java SE 8",
-  "Network+",
-  "AWS Cloud Practitioner",
-  "Azure AI Engineer",
-  "Yoga instructor",
+  {
+    name: "Penn Apps XXVI",
+    href: "https://utdmercury.com/32536/news/from-utd-to-harvard-how-a-dallas-student-sparked-viral-debate-over-ethics-in-tech/",
+  },
 ];
 
 function HomePage() {
@@ -144,7 +111,7 @@ function HomePage() {
               className="rounded-full bg-[#111111] px-6 py-6 text-[#f4f1ea] hover:bg-[#2a2a2a]"
               asChild
             >
-              <a href="mailto:hello@honrly.com?subject=AI%20or%20cybersecurity%20work">
+              <a href="mailto:nirav@honrly.com?subject=HI%20Nirav">
                 <Mail className="mr-2 h-4 w-4" />
                 Say hi
               </a>
@@ -167,8 +134,8 @@ function HomePage() {
         </motion.div>
       </section>
 
-      <section id="work" className="relative z-10 bg-[#111111] text-[#f4f1ea]">
-        <div className="mx-auto grid max-w-6xl gap-16 px-5 py-24 md:px-8 md:py-28 lg:grid-cols-[0.38fr_0.62fr]">
+      <section id="hackathons" className="relative z-10 bg-[#111111] text-[#f4f1ea]">
+        <div className="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-28">
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -176,34 +143,8 @@ function HomePage() {
             viewport={{ once: true, margin: "-120px" }}
           >
             <p className="text-[12px] uppercase tracking-[0.24em] text-white/35">
-              Work
+              Hackathons
             </p>
-            <div className="mt-8">
-                <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">
-                  Hackathons
-                </p>
-                <div className="mt-2 flex flex-col gap-1">
-                  <a
-                    href={featuredHackathon.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[14px] text-white/55 transition hover:text-[#f4f1ea]"
-                  >
-                    {featuredHackathon.name}
-                  </a>
-                  {hackathons.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[14px] text-white/55 transition hover:text-[#f4f1ea]"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-            </div>
           </motion.div>
 
           <motion.div
@@ -211,72 +152,50 @@ function HomePage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-120px" }}
-            className="border-t border-white/15"
+            className="mt-10 border-t border-white/15"
           >
-            {selectedWork.map((item) => {
-              const row = (
-                <>
-                  <h3 className="text-[15px] font-medium tracking-[-0.03em]">
-                    {item.title}
-                  </h3>
-                  {"detail" in item && item.detail ? (
-                    <p className="text-[13px] text-white/40">{item.detail}</p>
-                  ) : null}
-                </>
-              );
-              return (
-                <motion.div
-                  key={item.title}
-                  variants={fadeUp}
-                  className="flex items-baseline justify-between gap-6 border-b border-white/10 py-4"
-                >
-                  {"href" in item && item.href ? (
-                    <a href={item.href} className="flex w-full items-baseline justify-between gap-6 transition hover:opacity-80">
-                      {row}
-                    </a>
-                  ) : (
-                    row
-                  )}
-                </motion.div>
-              );
-            })}
+            {hackathons.map((item) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={fadeUp}
+                className="flex items-baseline justify-between gap-6 border-b border-white/10 py-5 transition hover:opacity-80"
+              >
+                <h3 className="text-[22px] font-medium tracking-[-0.04em] md:text-[28px]">
+                  {item.name}
+                </h3>
+                <span className="text-[12px] uppercase tracking-[0.16em] text-white/30">
+                  View
+                </span>
+              </motion.a>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      <section id="systems" className="relative z-10 mx-auto max-w-6xl px-5 py-24 md:px-8">
-        <div className="grid gap-12 border-t border-[#111111]/15 pt-14 lg:grid-cols-[1fr_0.38fr]">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
+      <section id="research" className="relative z-10 mx-auto max-w-6xl px-5 py-24 md:px-8">
+        <div className="border-t border-[#111111]/15 pt-14">
+          <p className="text-[12px] uppercase tracking-[0.24em] text-[#111111]/35">
+            Research
+          </p>
+          <a
+            href="/research"
+            className="mt-8 flex items-baseline justify-between gap-6 border-b border-[#111111]/10 pb-5 transition hover:opacity-70"
           >
-            <p className="text-[12px] uppercase tracking-[0.24em] text-[#111111]/35">
-              Tools
-            </p>
-            <p className="mt-5 max-w-2xl text-[15px] leading-8 tracking-[-0.02em] text-[#111111]/55">
-              {tools.join(" · ")}
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-          >
-            <p className="text-[12px] uppercase tracking-[0.24em] text-[#111111]/35">
-              Certs
-            </p>
-            <ul className="mt-5 space-y-1.5">
-              {certifications.map((cert) => (
-                <li key={cert} className="text-[14px] text-[#111111]/50">
-                  {cert}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+            <div>
+              <h2 className="text-[22px] font-medium tracking-[-0.04em] md:text-[28px]">
+                CCD-Bench
+              </h2>
+              <p className="mt-2 max-w-xl text-[14px] leading-6 text-[#111111]/50">
+                Measuring Cross-Channel Disagreement in LLM Evaluation
+              </p>
+            </div>
+            <span className="text-[12px] uppercase tracking-[0.16em] text-[#111111]/30">
+              Read
+            </span>
+          </a>
         </div>
       </section>
 
@@ -326,7 +245,7 @@ function HomePage() {
                 className="w-full rounded-full bg-[#f4f1ea] px-6 py-6 text-[#111111] hover:bg-white"
                 asChild
               >
-                <a href="mailto:hello@honrly.com?subject=AI%20or%20cybersecurity%20work">
+                <a href="mailto:nirav@honrly.com?subject=HI%20Nirav">
                   <Mail className="mr-2 h-4 w-4" />
                   Say hi
                 </a>
@@ -336,9 +255,8 @@ function HomePage() {
         </div>
       </section>
 
-      <footer className="relative z-10 mx-auto flex max-w-6xl flex-col gap-3 px-5 pb-8 text-[13px] text-[#111111]/40 md:flex-row md:items-center md:justify-between md:px-8">
+      <footer className="relative z-10 mx-auto max-w-6xl px-5 pb-8 text-[13px] text-[#111111]/40 md:px-8">
         <p>© 2026 Nirav Rohra</p>
-        <p>AI, cybersecurity, and trust infrastructure.</p>
       </footer>
 
       {ready && <AskNiravPill />}

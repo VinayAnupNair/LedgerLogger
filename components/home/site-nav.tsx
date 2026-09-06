@@ -6,21 +6,10 @@ import { useLenis } from "lenis/react";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { href: "#work", label: "Work", index: "01" },
-  { href: "/research", label: "Research", index: "02" },
+  { href: "/research", label: "Research", index: "01" },
+  { href: "#hackathons", label: "Hackathons", index: "02" },
   { href: "#dino", label: "Play", index: "03" },
-  {
-    href: "https://github.com/niravrohra",
-    label: "GitHub",
-    index: "04",
-    external: true,
-  },
-  {
-    href: "https://www.linkedin.com/in/nirav-rohra",
-    label: "LinkedIn",
-    index: "05",
-    external: true,
-  },
+  { href: "#contact", label: "Contact", index: "04" },
 ];
 
 function MagneticLink({
@@ -128,7 +117,7 @@ export function SiteNav({ ready }: { ready: boolean }) {
           </MagneticLink>
 
           <nav className="hidden items-center gap-8 text-[13px] text-current/55 md:flex">
-            {LINKS.slice(0, 3).map((link) => (
+            {LINKS.map((link) => (
               <MagneticLink
                 key={link.href}
                 href={link.href}

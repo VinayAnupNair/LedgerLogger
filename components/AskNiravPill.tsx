@@ -10,12 +10,12 @@ type ChatMessage = {
 };
 
 const STARTERS = [
-  "What is he working on now?",
-  "Tell me about Honrly",
-  "What's his research about?",
+  "What's he up to?",
+  "What's the research?",
+  "Hackathons?",
 ];
 
-const DARK_SECTIONS = ["#work", "#contact"];
+const DARK_SECTIONS = ["#hackathons", "#contact"];
 
 function ChatPanel({
   scrollRef,
@@ -186,7 +186,7 @@ export default function AskNiravPill() {
       const reply =
         data.text ||
         data.error ||
-        "Something went wrong. Try again or email hello@honrly.com.";
+        "Something went wrong. Try again or email nirav@honrly.com.";
 
       setMessages([...nextMessages, { role: "assistant", text: reply }]);
     } catch {
@@ -194,7 +194,7 @@ export default function AskNiravPill() {
         ...nextMessages,
         {
           role: "assistant",
-          text: "Could not reach the AI. Try again or email hello@honrly.com.",
+          text: "Could not reach the AI. Try again or email nirav@honrly.com.",
         },
       ]);
     } finally {

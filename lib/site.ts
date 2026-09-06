@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Nirav Rohra",
   url: "https://niravrohra.com",
-  email: "hello@honrly.com",
+  email: "nirav@honrly.com",
   title: "Nirav Rohra — Stealth",
   description:
     "Nirav Rohra. Stealth. Making the world's most advanced AI system.",

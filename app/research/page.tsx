@@ -456,8 +456,7 @@ export default function ResearchPage() {
               <h2 className="text-sm font-medium tracking-[-0.02em]">About the author</h2>
               <p className="mt-3 max-w-xl text-[14px] leading-7 text-[#111111]/60 dark:text-[#f4f1ea]/60">
                 {researchPaper.author} researches mechanistic interpretability and LLM evaluation
-                safety metrology. Founder of Honrly, AI/cyber intern at Zebra Technologies, CS (AI)
-                at UT Dallas. More work and contact on the{" "}
+                safety metrology. CS (AI) at UT Dallas. Research, hackathons, and contact on the{" "}
                 <Link href="/" className="underline underline-offset-2 hover:text-[#111111] dark:hover:text-[#f4f1ea]">
                   main portfolio
                 </Link>
