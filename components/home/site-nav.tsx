@@ -17,13 +17,11 @@ function MagneticLink({
   children,
   className,
   onClick,
-  external,
 }: {
   href: string;
   children: React.ReactNode;
   className?: string;
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
-  external?: boolean;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
 
@@ -46,7 +44,6 @@ function MagneticLink({
         if (!el) return;
         el.style.transform = "translate3d(0, 0, 0)";
       }}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}
     </a>
@@ -121,7 +118,6 @@ export function SiteNav({ ready }: { ready: boolean }) {
               <MagneticLink
                 key={link.href}
                 href={link.href}
-                external={link.external}
                 onClick={(e) => goHash(e, link.href)}
                 className="nav-link transition-transform duration-300 ease-out hover:text-current"
               >
@@ -172,7 +168,6 @@ export function SiteNav({ ready }: { ready: boolean }) {
                     >
                       <MagneticLink
                         href={link.href}
-                        external={link.external}
                         onClick={(e) => {
                           if (link.href.startsWith("#")) goHash(e, link.href);
                           else setOpen(false);
